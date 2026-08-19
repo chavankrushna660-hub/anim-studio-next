@@ -1,176 +1,344 @@
+/* =========================================================
+   ANIMSTUDIO — UNIFIED PROFESSIONAL STUDIO THEME
+   A single graphite / blue-tinted palette (Adobe-like).
+   Purely presentational: no application logic depends on it.
+   ========================================================= */
 
-/* ----------------------------------------------------
-   LIGHT THEME OVERRIDE SYSTEM
-   ---------------------------------------------------- */
+#anim-root {
+  /* Dark studio (default) */
+  --s0: #0e1116;   /* deepest: workspace / canvas surround */
+  --s1: #171b22;   /* panels, header, timeline */
+  --s2: #1f242d;   /* controls, buttons, cards */
+  --s3: #2a313c;   /* hover */
+  --brd: #313a47;  /* borders */
+  --txt: #ffffff;
+  --txt2: #aeb7c4;
+  --accent: #2f6fb2;        /* subtle blue for primary actions */
+  --accent-hover: #3a80c9;
+  --accent-txt: #ffffff;
+  --active: #c9ced6;        /* light gray for ACTIVE tools */
+  --active-txt: #10141a;
+  --danger: #b5424a;
 
-.light-theme {
-  --bg-main: #f8fafc;
-  --bg-panel: #ffffff;
-  --bg-item: #f1f5f9;
-  --bg-border: #cbd5e1;
-  --text-primary: #0f172a;
-  --text-secondary: #1e293b;
-  --text-muted: #475569;
-  
-  background-color: var(--bg-main) !important;
-  color: var(--text-primary) !important;
+  background: var(--s0);
+  color: var(--txt);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Bold icons and text in light theme */
-.light-theme svg {
-  stroke-width: 2.4px !important;
+#anim-root.light-theme {
+  --s0: #d7dbe1;
+  --s1: #ffffff;
+  --s2: #eef0f4;
+  --s3: #e1e5ea;
+  --brd: #c3c9d2;
+  --txt: #10141a;
+  --txt2: #4c5563;
+  --accent: #2f6fb2;
+  --accent-hover: #2a6099;
+  --accent-txt: #ffffff;
+  --active: #b9c1cc;
+  --active-txt: #0b0e13;
+  background: var(--s0);
+  color: var(--txt);
 }
 
-.light-theme span,
-.light-theme p,
-.light-theme button,
-.light-theme label,
-.light-theme div,
-.light-theme input,
-.light-theme select,
-.light-theme option {
-  font-weight: 500;
+/* ---------- 1. Neutralise every legacy colour utility ---------- */
+#anim-root [class*="bg-"]:not(.anim-colorpicker [class*="bg-"]) {
+  background-image: none !important;
 }
 
-.light-theme .font-normal {
-  font-weight: 500 !important;
+#anim-root [class*="bg-amber"],
+#anim-root [class*="bg-yellow"],
+#anim-root [class*="bg-emerald"],
+#anim-root [class*="bg-green"],
+#anim-root [class*="bg-lime"],
+#anim-root [class*="bg-teal"],
+#anim-root [class*="bg-cyan"],
+#anim-root [class*="bg-sky"],
+#anim-root [class*="bg-blue"],
+#anim-root [class*="bg-indigo"],
+#anim-root [class*="bg-violet"],
+#anim-root [class*="bg-purple"],
+#anim-root [class*="bg-fuchsia"],
+#anim-root [class*="bg-pink"],
+#anim-root [class*="bg-orange"],
+#anim-root [class*="bg-neutral-800"],
+#anim-root [class*="bg-neutral-700"],
+#anim-root [class*="bg-neutral-850"],
+#anim-root [class*="bg-slate-800"],
+#anim-root [class*="bg-slate-700"],
+#anim-root [class*="bg-zinc-800"],
+#anim-root [class*="bg-gray-800"] {
+  background-color: var(--s2) !important;
+  border-color: var(--brd) !important;
+  color: var(--txt) !important;
 }
 
-.light-theme .font-medium {
-  font-weight: 600 !important;
+#anim-root [class*="bg-neutral-900"],
+#anim-root [class*="bg-slate-900"],
+#anim-root [class*="bg-zinc-900"],
+#anim-root [class*="bg-gray-900"],
+#anim-root header,
+#anim-root aside,
+#anim-root footer {
+  background-color: var(--s1) !important;
+  border-color: var(--brd) !important;
+  color: var(--txt) !important;
 }
 
-.light-theme .font-semibold {
-  font-weight: 700 !important;
+#anim-root [class*="bg-neutral-950"],
+#anim-root [class*="bg-slate-950"],
+#anim-root [class*="bg-zinc-950"],
+#anim-root [class*="bg-black"] {
+  background-color: var(--s0) !important;
+  border-color: var(--brd) !important;
+  color: var(--txt) !important;
 }
 
-.light-theme .font-bold {
-  font-weight: 800 !important;
+/* Light surfaces used by legacy light styling */
+#anim-root [class*="bg-white"],
+#anim-root [class*="bg-neutral-100"],
+#anim-root [class*="bg-slate-100"],
+#anim-root [class*="bg-neutral-200"],
+#anim-root [class*="bg-slate-200"] {
+  background-color: var(--s2) !important;
+  color: var(--txt) !important;
 }
 
-.light-theme .font-black {
-  font-weight: 950 !important;
+/* ---------- 2. Primary actions (former gradients / solid brand fills) ---------- */
+#anim-root button[class*="bg-gradient"],
+#anim-root label[class*="bg-gradient"],
+#anim-root button[class*="bg-emerald-6"],
+#anim-root button[class*="bg-emerald-5"],
+#anim-root button[class*="bg-amber-5"]:not([class*="/"]),
+#anim-root button[class*="bg-blue-6"] {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--accent-txt) !important;
+}
+#anim-root button[class*="bg-gradient"]:hover,
+#anim-root label[class*="bg-gradient"]:hover,
+#anim-root button[class*="bg-emerald-6"]:hover,
+#anim-root button[class*="bg-emerald-5"]:hover,
+#anim-root button[class*="bg-blue-6"]:hover {
+  background-color: var(--accent-hover) !important;
 }
 
-/* Base structural elements (Header, Toolbar, Panels, Timelines, Ad bars) */
-.light-theme *[class*="bg-neutral-900"],
-.light-theme *[class*="bg-neutral-950"],
-.light-theme *[class*="bg-neutral-850"],
-.light-theme *[class*="bg-neutral-800"],
-.light-theme *[class*="bg-black"],
-.light-theme header,
-.light-theme aside,
-.light-theme #system-top-ad-bar,
-.light-theme #system-bottom-ad-bar {
-  background-color: var(--bg-panel) !important;
-  border-color: var(--bg-border) !important;
-  color: var(--text-primary) !important;
+/* Destructive actions stay readable but muted */
+#anim-root button[class*="bg-rose-6"],
+#anim-root button[class*="bg-red-6"],
+#anim-root button[class*="bg-rose-5"],
+#anim-root button[class*="bg-red-5"] {
+  background-color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: #ffffff !important;
 }
 
-/* Borders */
-.light-theme *[class*="border-neutral-850"],
-.light-theme *[class*="border-neutral-800"],
-.light-theme *[class*="border-neutral-900"],
-.light-theme *[class*="border-neutral-700"],
-.light-theme header,
-.light-theme aside {
-  border-color: var(--bg-border) !important;
+/* ---------- 3. Active / selected state = light gray ---------- */
+#anim-root button[class*="bg-amber-500/2"],
+#anim-root button[class*="bg-amber-500/1"],
+#anim-root button[class*="bg-amber-400/2"],
+#anim-root button[class*="ring-amber"],
+#anim-root button[class*="border-amber-4"],
+#anim-root [class*="ring-2"][class*="bg-"],
+#anim-root button[aria-pressed="true"],
+#anim-root button[data-active="true"] {
+  background-color: var(--active) !important;
+  border-color: var(--active) !important;
+  color: var(--active-txt) !important;
+  box-shadow: none !important;
+}
+#anim-root button[class*="bg-amber-500/2"] svg,
+#anim-root button[class*="bg-amber-500/1"] svg,
+#anim-root button[class*="ring-amber"] svg,
+#anim-root button[class*="border-amber-4"] svg,
+#anim-root button[aria-pressed="true"] svg,
+#anim-root button[data-active="true"] svg,
+#anim-root button[class*="bg-amber-500/2"] span,
+#anim-root button[class*="bg-amber-500/1"] span,
+#anim-root button[class*="border-amber-4"] span {
+  color: var(--active-txt) !important;
 }
 
-/* Text overrides */
-.light-theme .text-white,
-.light-theme .text-neutral-100,
-.light-theme .text-neutral-200 {
-  color: var(--text-primary) !important;
+/* ---------- 4. Typography ---------- */
+#anim-root,
+#anim-root span,
+#anim-root p,
+#anim-root h1,
+#anim-root h2,
+#anim-root h3,
+#anim-root h4,
+#anim-root label,
+#anim-root button,
+#anim-root div {
+  font-weight: 600;
+}
+#anim-root [class*="text-amber"],
+#anim-root [class*="text-yellow"],
+#anim-root [class*="text-emerald"],
+#anim-root [class*="text-green"],
+#anim-root [class*="text-lime"],
+#anim-root [class*="text-teal"],
+#anim-root [class*="text-cyan"],
+#anim-root [class*="text-sky"],
+#anim-root [class*="text-blue"],
+#anim-root [class*="text-indigo"],
+#anim-root [class*="text-violet"],
+#anim-root [class*="text-purple"],
+#anim-root [class*="text-fuchsia"],
+#anim-root [class*="text-pink"],
+#anim-root [class*="text-orange"],
+#anim-root [class*="text-white"],
+#anim-root [class*="text-neutral-100"],
+#anim-root [class*="text-neutral-200"],
+#anim-root [class*="text-neutral-300"],
+#anim-root [class*="text-slate-200"],
+#anim-root [class*="text-slate-300"] {
+  color: var(--txt) !important;
+}
+#anim-root [class*="text-neutral-400"],
+#anim-root [class*="text-neutral-500"],
+#anim-root [class*="text-neutral-600"],
+#anim-root [class*="text-slate-400"],
+#anim-root [class*="text-slate-500"],
+#anim-root [class*="text-gray-400"] {
+  color: var(--txt2) !important;
+}
+#anim-root [class*="text-rose"],
+#anim-root [class*="text-red"] {
+  color: var(--txt) !important;
 }
 
-.light-theme .text-neutral-300,
-.light-theme .text-neutral-400 {
-  color: var(--text-secondary) !important;
+/* ---------- 5. Borders, rings, shadows ---------- */
+#anim-root [class*="border-"] {
+  border-color: var(--brd) !important;
+}
+#anim-root [class*="border-transparent"] {
+  border-color: transparent !important;
+}
+#anim-root [class*="ring-"] {
+  --tw-ring-color: var(--brd) !important;
+}
+#anim-root [class*="shadow-"] {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+#anim-root [class*="rounded-xl"],
+#anim-root [class*="rounded-2xl"],
+#anim-root [class*="rounded-3xl"] {
+  border-radius: 6px !important;
+}
+#anim-root [class*="rounded-lg"],
+#anim-root [class*="rounded-md"] {
+  border-radius: 5px !important;
 }
 
-.light-theme .text-neutral-500 {
-  color: var(--text-muted) !important;
+/* Hover feedback, single register */
+#anim-root button:hover:not([disabled]),
+#anim-root label:hover {
+  background-color: var(--s3) !important;
+  color: var(--txt) !important;
+}
+#anim-root button[class*="bg-gradient"]:hover,
+#anim-root button[aria-pressed="true"]:hover,
+#anim-root button[class*="bg-amber-500/2"]:hover,
+#anim-root button[class*="bg-amber-500/1"]:hover {
+  background-color: var(--active) !important;
+  color: var(--active-txt) !important;
+}
+#anim-root button[class*="bg-gradient"]:hover {
+  background-color: var(--accent-hover) !important;
+  color: var(--accent-txt) !important;
 }
 
-/* Dynamic control blocks (sliders, dropdowns, cards) */
-.light-theme *[class*="bg-neutral-950/60"],
-.light-theme *[class*="bg-neutral-950/40"],
-.light-theme *[class*="bg-neutral-900/60"],
-.light-theme *[class*="bg-neutral-800/40"],
-.light-theme *[class*="bg-neutral-800/60"],
-.light-theme *[class*="bg-neutral-850/60"],
-.light-theme *[class*="bg-neutral-950/80"],
-.light-theme *[class*="bg-neutral-900/80"] {
-  background-color: var(--bg-item) !important;
-  border-color: var(--bg-border) !important;
+/* ---------- 6. Form controls ---------- */
+#anim-root input,
+#anim-root select,
+#anim-root textarea,
+#anim-root option {
+  background-color: var(--s2) !important;
+  color: var(--txt) !important;
+  border-color: var(--brd) !important;
+  font-weight: 600;
+  border-radius: 5px;
+}
+#anim-root input::placeholder {
+  color: var(--txt2) !important;
+}
+#anim-root input[type="range"] {
+  accent-color: var(--accent);
+  background: var(--s3) !important;
+}
+#anim-root input[type="checkbox"] {
+  accent-color: var(--accent);
 }
 
-/* Button & interactive hover overrides */
-.light-theme button[class*="bg-neutral-850"],
-.light-theme button[class*="bg-neutral-800"] {
-  background-color: var(--bg-item) !important;
-  color: var(--text-primary) !important;
-  border-color: var(--bg-border) !important;
+/* ---------- 7. Brand: fixed, background-free logo ---------- */
+#anim-root .anim-topbar {
+  position: relative;
+  overflow: hidden;
+}
+#anim-root .anim-brand {
+  position: sticky;
+  left: 0;
+  z-index: 40;
+  background-color: var(--s1) !important;
+}
+#anim-root .anim-logo-mark,
+#anim-root .anim-logo-mark * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+#anim-root .anim-topbar-scroll {
+  scrollbar-width: none;
+}
+#anim-root .anim-topbar-scroll::-webkit-scrollbar {
+  display: none;
 }
 
-.light-theme button[class*="bg-neutral-850"]:hover,
-.light-theme button[class*="bg-neutral-800"]:hover,
-.light-theme label[class*="bg-neutral-800"]:hover {
-  background-color: var(--bg-border) !important;
+/* ---------- 8. Panels: strict vertical flow, no overflow ---------- */
+#anim-root .anim-colorpicker {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+}
+#anim-root .anim-colorpicker > button {
+  width: 100% !important;
+}
+#anim-root aside,
+#anim-root aside * {
+  max-width: 100%;
+}
+#anim-root aside {
+  overflow-x: hidden;
 }
 
-/* Form fields (Inputs, Selects, option elements) */
-.light-theme input,
-.light-theme select,
-.light-theme textarea {
-  background-color: var(--bg-panel) !important;
-  color: var(--text-primary) !important;
-  border-color: var(--bg-border) !important;
+/* ---------- 9. Scrollbars ---------- */
+#anim-root *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#anim-root *::-webkit-scrollbar-track {
+  background: var(--s1);
+}
+#anim-root *::-webkit-scrollbar-thumb {
+  background: var(--s3);
+  border-radius: 5px;
+}
+#anim-root *::-webkit-scrollbar-thumb:hover {
+  background: var(--brd);
 }
 
-.light-theme input::placeholder {
-  color: var(--text-muted) !important;
+/* ---------- 10. Colour picker keeps its real colours ---------- */
+#anim-root .anim-colorpicker [style*="background"] {
+  background-image: initial;
 }
 
-/* Selected button highlights */
-.light-theme button[class*="bg-amber-500/10"],
-.light-theme button[class*="bg-amber-500/20"] {
-  background-color: rgba(245, 158, 11, 0.12) !important;
-  color: #b45309 !important;
-  border-color: rgba(245, 158, 11, 0.4) !important;
-}
-
-/* Canvas Area background panel */
-.light-theme main[class*="flex-1"],
-.light-theme div[class*="bg-neutral-950"] > div[class*="flex-1"] {
-  background-color: #cbd5e1 !important;
-}
-
-/* Canvas paper outline shadow */
-.light-theme canvas {
-  background-color: #ffffff;
-}
-
-/* Grid lines */
-.light-theme line {
-  stroke: #cbd5e1 !important;
-}
-
-/* Keep critical notice modals, toasts, and auth overlays dark for high visual hierarchy */
-.light-theme #limit-toast-notification,
-.light-theme #db-toast-notification {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-}
-
-.light-theme #limit-toast-notification *,
-.light-theme #db-toast-notification * {
-  color: #f8fafc !important;
-  border-color: #334155 !important;
-}
-
-.light-theme #limit-toast-notification button,
-.light-theme #db-toast-notification button {
-  color: #0f172a !important;
+/* ---------- 11. No entry animations / flash ---------- */
+#anim-root .animate-fade-in,
+#anim-root .animate-pulse {
+  animation: none !important;
 }
