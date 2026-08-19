@@ -40,7 +40,6 @@ import RightPanel from './components/RightPanel';
 import CanvasArea from './components/CanvasArea';
 import Timeline from './components/Timeline';
 import CustomDialog, { CustomDialogConfig } from './components/CustomDialog';
-const PythonCodeModal = lazy(() => import('./components/PythonCodeModal'));
 const SavedAnimationsModal = lazy(() => import('./components/SavedAnimationsModal'));
 import { VectorObject, Bone, Layer, Frame, Point, RealismSettings, View360, BrushSettings, Transform, LiquifyBrushSettings, PointShapeState, PointShapeNode, SculptBrushState, LineEditState, LineEditNode } from './types';
 import { localToWorld, worldToLocal, rotatePoint, calculateBoundingBox, unifyStrokesToSinglePath, isPointInPolygon, findClosestView360 } from './utils/math';
@@ -502,7 +501,6 @@ export default function App() {
     });
   };
   const [bones, setBones] = useState<Bone[]>([]);
-  const [isPythonModalOpen, setIsPythonModalOpen] = useState<boolean>(false);
   const [onionSkinEnabled, setOnionSkinEnabled] = useState(true);
   const [showBones, setShowBones] = useState(true);
   const [activeLayerId, setActiveLayerId] = useState<string>('layer_1');
