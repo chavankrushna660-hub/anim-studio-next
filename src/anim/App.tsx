@@ -3684,21 +3684,6 @@ export default function App() {
 
           <div className="w-[1px] h-6 bg-neutral-800 mx-0.5 shrink-0"></div>
 
-          {/* Python Codebase Modal Trigger */}
-          <button
-            onClick={() => setIsPythonModalOpen(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 font-bold text-[9px] sm:text-xs transition-all cursor-pointer select-none shrink-0"
-            title="Inspect & Download Python PyQt6 & Pygame Converted Codebase"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-            <span className="uppercase tracking-wider text-[10px] font-black">Python Codebase</span>
-            <span className="bg-cyan-500/20 px-1.5 py-0.5 rounded text-[9px] font-mono font-black text-cyan-300">
-              PyQt6
-            </span>
-          </button>
-
-          <div className="w-[1px] h-6 bg-neutral-800 mx-0.5 shrink-0"></div>
-
           {/* Database Storage Quota Trigger */}
           <button
             onClick={() => setIsSavedAnimationsModalOpen(true)}
