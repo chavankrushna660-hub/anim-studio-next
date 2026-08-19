@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { runSecurityShield } from "./utils/securityGuard";

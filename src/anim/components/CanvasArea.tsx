@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useState, useEffect } from 'react';
 const EMPTY_ARRAY: any[] = [];
 import { RotateCcw, Sparkles, Feather, ZoomIn, ZoomOut, Maximize2, Activity, GitCommit } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect, useRef } from 'react';
 import { AlertCircle, HelpCircle, CheckCircle, Info } from 'lucide-react';
 

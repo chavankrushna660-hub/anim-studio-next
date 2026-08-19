@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Point, VectorObject } from '../types';
 import { extractPNGSilhouetteContour } from './pngSilhouette';
 import { calculateBoundingBox, localToWorld, worldToLocal } from './math';

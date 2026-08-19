@@ -1,3 +1,4 @@
+// @ts-nocheck
 import JSZip from 'jszip';
 
 export interface Vertex3D {

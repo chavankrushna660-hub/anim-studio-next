@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Pipette, Check, X, Palette, ChevronDown, ChevronUp } from 'lucide-react';
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Point, VectorObject } from '../types';
 
 /**

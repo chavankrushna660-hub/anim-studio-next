@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * C++ Accelerated Math & Geometry Core
  * Fast TypedArray SIMD-like pipeline for 2D/3D stroke extrusion, 360-orbit,

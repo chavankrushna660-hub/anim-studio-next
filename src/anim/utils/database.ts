@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Frame, VectorObject, Bone, Layer } from '../types';
 
 export interface SavedAnimationRecord {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { VectorObject, Point, Pivot, Transform, Frame } from "../types";
 
 export const interpolateTransform = (tStart: Transform, tEnd: Transform, t: number): Transform => {

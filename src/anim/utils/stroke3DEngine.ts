@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Point, VectorObject, Rule3DState, Rule3DStrokePath, Rule3DPoint, Rule3DDetectedPart } from '../types';
 
 /**

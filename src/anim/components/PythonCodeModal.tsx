@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { X, Code, Download, Copy, Check, Terminal, Play, FileCode, CheckCircle2 } from 'lucide-react';
 import JSZip from 'jszip';

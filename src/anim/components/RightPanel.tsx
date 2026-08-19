@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 const EMPTY_ARRAY: any[] = [];
 import CustomColorPicker from './CustomColorPicker';

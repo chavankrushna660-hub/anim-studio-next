@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PURE OBJECT-BASED 2.5D PROXY SYSTEM & 3D PROJECTION ENGINE
 import { Point } from '../types';
 

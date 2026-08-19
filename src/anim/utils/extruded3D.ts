@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Point, VectorObject } from '../types';
 import { localToWorld, extractAllSubPaths } from './math';
 

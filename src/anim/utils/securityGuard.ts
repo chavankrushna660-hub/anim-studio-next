@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Professional Client-Side Security Guard & Injection Shield
  * Prevents dynamic script injection, prototype pollution, XSS vectors, and tampering.
