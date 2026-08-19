@@ -180,7 +180,7 @@ export default function CustomColorPicker({
   const pureHueHex = hsvToHex(hue, 100, 100);
 
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`anim-colorpicker w-full ${className}`}>
       {label && <label className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1">{label}</label>}
       
       {/* Primary Trigger Button */}
