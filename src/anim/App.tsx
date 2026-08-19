@@ -4282,12 +4282,6 @@ export default function App() {
           />
         )}
 
-        {isPythonModalOpen && (
-          <PythonCodeModal
-            isOpen={isPythonModalOpen}
-            onClose={() => setIsPythonModalOpen(false)}
-          />
-        )}
       </Suspense>
 
 
