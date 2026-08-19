@@ -3794,6 +3794,7 @@ export default function App() {
             )}
           </div>
         </div>
+        </div>
       </header>
 
       {/* 2. MIDDLE WORKSPACE PANELS AND CANVAS */}
