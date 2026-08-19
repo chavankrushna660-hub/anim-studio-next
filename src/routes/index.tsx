@@ -1,24 +1,32 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, ClientOnly } from "@tanstack/react-router";
+import { lazy } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const AnimStudioClient = lazy(() => import("../anim/AnimStudioClient"));
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "AnimaStudio — Professional 2D & 3D Animation Studio" },
+      {
+        name: "description",
+        content:
+          "AnimaStudio is a free browser-based animation studio with vector drawing, 3D extrusion, timeline keyframing and PNG deep editing.",
+      },
+      { property: "og:title", content: "AnimaStudio — Professional Animation Studio" },
+      {
+        property: "og:description",
+        content:
+          "Draw, rig, extrude and animate in the browser. Free forever, works with huge projects.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ClientOnly fallback={<div className="min-h-screen bg-background" />}>
+      <AnimStudioClient />
+    </ClientOnly>
   );
 }
