@@ -677,7 +677,7 @@ export default function App() {
   
   // Theme states
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    return (localStorage.getItem('animastudio_theme') as 'dark' | 'light') || 'light';
+    return (localStorage.getItem('animastudio_theme') as 'dark' | 'light') || 'dark';
   });
 
   const toggleTheme = () => {
@@ -3484,7 +3484,7 @@ export default function App() {
   };
 
   return (
-    <div className={`w-screen h-screen overflow-hidden bg-neutral-950 relative ${theme === 'light' ? 'light-theme' : ''}`}>
+    <div id="anim-root" className={`anim-shell w-screen h-screen overflow-hidden bg-neutral-950 relative ${theme === 'light' ? 'light-theme' : ''}`}>
       <div 
         style={containerStyle}
         className={`flex flex-col h-full w-full bg-neutral-950 text-white font-sans text-sm antialiased overflow-hidden select-none ${theme === 'light' ? 'light-theme' : ''}`}
@@ -3501,11 +3501,11 @@ export default function App() {
       </div>
 
       {/* 1. TOP NAVIGATION BAR */}
-      <header className="h-14 bg-neutral-900 border-b border-neutral-800 px-3 sm:px-5 flex items-center justify-between shrink-0 select-none z-10 overflow-x-auto scrollbar-none flex-nowrap shadow-md">
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0 flex-nowrap">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-b from-[#E83535] to-[#C91D1D] flex items-center justify-center shadow-lg shadow-red-600/30 shrink-0 overflow-hidden border border-red-500/40 p-1">
+      <header className="anim-topbar h-14 bg-neutral-900 border-b border-neutral-800 px-3 sm:px-5 flex items-center shrink-0 select-none z-10 flex-nowrap shadow-md">
+        <div id="anim-brand" className="anim-brand flex items-center gap-2.5 sm:gap-3 shrink-0 flex-nowrap pr-4">
+          <div className="anim-logo-mark w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shrink-0 overflow-hidden p-0.5">
             <svg viewBox="0 0 512 512" className="w-full h-full">
-              <path fill="#FFFFFF" fillRule="evenodd" d="
+              <path fill="#E83535" fillRule="evenodd" d="
                 M 188 108
                 C 188 96, 198 90, 212 90
                 L 300 90
@@ -3539,6 +3539,8 @@ export default function App() {
           </div>
         </div>
 
+        {/* Scrollable action rail (never slides under the fixed brand) */}
+        <div className="anim-topbar-scroll flex items-center justify-between flex-1 min-w-0 overflow-x-auto scrollbar-none flex-nowrap gap-2">
         {/* Center Actions: Undo, Redo, Add Sample Character */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 flex-nowrap mx-2">
           <button
